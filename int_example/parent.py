@@ -9,7 +9,7 @@ def start_child():
     print('parent: starting child', file=sys.stderr)
     
     popen_object = subprocess.Popen(
-        ['python', 'child.py'],
+        ['python', os.path.join(os.path.dirname(__file__), 'child.py')],
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE
     )
