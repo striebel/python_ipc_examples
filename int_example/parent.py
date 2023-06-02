@@ -45,7 +45,10 @@ def parent_ipc_loop(popen_object):
        
        os.write(popen_object.stdin.fileno(), input_bytes)
        
-       # read the 8-byte response from the child
+       # read the 8-byte response from the child;
+       # this call to os.read will block until the child has
+       # finished fulfilling the request and has written the
+       # 8 bytes
        output_bytes = os.read(popen_object.stdout.fileno(), 8)
        
        # convert the Fibonacci number from its representation as a

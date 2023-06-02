@@ -27,8 +27,10 @@ def child_ipc_loop():
     
         print(f'child: begin iteration {index}', file=sys.stderr)
         
-        # read 8 bytes of binary data from stdin
+        # read 8 bytes of binary data from stdin;
         # these 8 bytes are the binary representation of an integer
+        # that will be submitted to the child by its parent;
+        # this call to os.read will block until the parent writes the 8 bytes
         input_bytes = os.read(sys.stdin.fileno(), 8)
         
         # covert the bytes to a Python int object
