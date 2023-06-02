@@ -3,7 +3,7 @@
 ## `int` Example
 
 This example shows communication between a parent and child process.
-The parent creates the child processes and then submits requests
+The parent creates the child process and then submits requests
 to the child, where each request is one `int`, and the child responds
 to the requests, where each response is also one `int`.
 
