@@ -5,13 +5,14 @@
 This example shows communication between a parent and child process.
 The parent creates the child processes and then submits requests
 to the child, where each request is one `int`, and the child responds
-to the request, where each response is also one `int`.
+to the requests, where each response is also one `int`.
 
 When the example is run, after the parent creates the child process, the
 child blocks until it receives a request from the parent.
 The parent first prompts the user for input.
-Once the parent gets the input from the user, the parent makes its
-request to the child, and the parent blocks until it receives a
+Once the parent gets the input from the user,
+the parent sends that input to the child as a
+request, and the parent blocks until it receives a
 response from the child.
 Once the child receives the request from the parent, the child calculates
 its response and sends it to the parent; then the child goes back
@@ -22,13 +23,16 @@ response to the user.
 Then the parent goes back to the top of its own loop and displays the
 same prompt to the user again.
 
-A request made to the child is one `int` obj *n* and the response is the
-*n*th Fibonacci number. The example can be invoked from a bash prompt as
+A request made to the child consists of one `int` object *n*,
+and the response consists of one `int` object which is the
+*n*th Fibonacci number.
+The example can be invoked from a bash prompt as
 ```sh
 $ python int_example/parent.py 2> /dev/null
 ```
-If you would like to see debugging output, and a trace in case an exception
-occurs, you can omit `2> /dev/null`. An example interactive run is the
+If you would like to see debugging output and a trace in case an exception
+occurs, you can omit `2> /dev/null`.
+An example of an interactive run of this Python IPC example is the
 following
 ```sh
 Enter some n to obtain the nth Fibonacci number > 
